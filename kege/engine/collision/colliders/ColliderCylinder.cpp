@@ -7,9 +7,9 @@
  */
 #include "../system/CollisionContact.hpp"
 #include "../colliders/ColliderCylinder.hpp"
-namespace kege{namespace cg{
+namespace kege{namespace gfx{
     
-    bool Cylinder_Intersect_Cylinder(cg::CollisionContacts* contacts, cg::ColliderCylinder* a, cg::ColliderCylinder* b)
+    bool Cylinder_Intersect_Cylinder(gfx::CollisionContacts* contacts, gfx::ColliderCylinder* a, gfx::ColliderCylinder* b)
     {
 //        const cg::cylinder& c0 = a->GetShape();
 //        const cg::cylinder& c1 = b->GetShape();
@@ -56,48 +56,48 @@ namespace kege{namespace cg{
         return false;
     }
     
-    bool ColliderCylinder::TestCollision(cg::CollisionContacts* contacts, cg::ColliderCylinder* shape)
+    bool ColliderCylinder::TestCollision(gfx::CollisionContacts* contacts, gfx::ColliderCylinder* shape)
     {
-        return cg::Cylinder_Intersect_Cylinder(contacts, this, shape);;
+        return gfx::Cylinder_Intersect_Cylinder(contacts, this, shape);;
     }
-    bool ColliderCylinder::TestCollision(cg::CollisionContacts* contacts, cg::ColliderTriangle* shape)
-    {
-        return false;
-    }
-    bool ColliderCylinder::TestCollision(cg::CollisionContacts* contacts, cg::ColliderSegment* shape)
+    bool ColliderCylinder::TestCollision(gfx::CollisionContacts* contacts, gfx::ColliderTriangle* shape)
     {
         return false;
     }
-    bool ColliderCylinder::TestCollision(cg::CollisionContacts* contacts, cg::ColliderCapsule* shape)
+    bool ColliderCylinder::TestCollision(gfx::CollisionContacts* contacts, gfx::ColliderSegment* shape)
     {
         return false;
     }
-    bool ColliderCylinder::TestCollision(cg::CollisionContacts* contacts, cg::ColliderSphere* shape)
+    bool ColliderCylinder::TestCollision(gfx::CollisionContacts* contacts, gfx::ColliderCapsule* shape)
     {
         return false;
     }
-    bool ColliderCylinder::TestCollision(cg::CollisionContacts* contact, cg::ColliderPlane* shape)
+    bool ColliderCylinder::TestCollision(gfx::CollisionContacts* contacts, gfx::ColliderSphere* shape)
     {
         return false;
     }
-    bool ColliderCylinder::TestCollision(cg::CollisionContacts* contact, cg::ColliderAABB* shape)
+    bool ColliderCylinder::TestCollision(gfx::CollisionContacts* contact, gfx::ColliderPlane* shape)
     {
         return false;
     }
-    bool ColliderCylinder::TestCollision(cg::CollisionContacts* contact, cg::ColliderCone* shape)
+    bool ColliderCylinder::TestCollision(gfx::CollisionContacts* contact, gfx::ColliderAABB* shape)
     {
         return false;
     }
-    bool ColliderCylinder::TestCollision(cg::CollisionContacts* contact, cg::ColliderOBB* shape)
+    bool ColliderCylinder::TestCollision(gfx::CollisionContacts* contact, gfx::ColliderCone* shape)
     {
         return false;
     }
-    bool ColliderCylinder::TestCollision(cg::CollisionContacts* contact, cg::ColliderRay* shape)
+    bool ColliderCylinder::TestCollision(gfx::CollisionContacts* contact, gfx::ColliderOBB* shape)
+    {
+        return false;
+    }
+    bool ColliderCylinder::TestCollision(gfx::CollisionContacts* contact, gfx::ColliderRay* shape)
     {
         return false;
     }
     
     ColliderCylinder::ColliderCylinder()
-    :   cg::Collider( cg::Collider::CYLINDER )
+    :   gfx::Collider( gfx::Collider::CYLINDER )
     {}
 }}

@@ -10,29 +10,34 @@
 #include "GLGraphics.hpp"
 namespace kege{namespace gfx{
     
-    gfx::GraphicsFramework* gfx::Graphics::framework = nullptr;
+    core::GraphicsFramework* gfx::Graphics::framework = nullptr;
     
-    gfx::GraphicsFramework* Graphics::Framework()
+    core::GraphicsFramework* Graphics::Framework()
     {
         return framework;
     }
     
-    Window* Graphics::CreateWindow(int width, int height, const char *title, bool fullscreen)
+    core::Window* Graphics::CreateWindow(int width, int height, const char *title, bool fullscreen)
     {
         return framework->CreateWindow(width, height, title, fullscreen);
     }
     
-    UBO* Graphics::CreateUBO(long size, const void* data, cg::uint usage, const ds::string& name)
+    core::UBO* Graphics::CreateUBO(long size, const void* data, cg::uint usage, const ds::string& name)
     {
         return framework->CreateUBO(size, data, usage, name);
     }
-    VBO* Graphics::CreateVBO(long size, const void* data, cg::uint usage)
+    core::VBO* Graphics::CreateVBO(long size, const void* data, cg::uint usage)
     {
         return framework->CreateVBO(size, data, usage);
     }
-    IBO* Graphics::CreateIBO(long size, const void* data, cg::uint usage)
+    core::IBO* Graphics::CreateIBO(long size, const void* data, cg::uint usage)
     {
         return framework->CreateIBO(size, data, usage);
+    }
+    
+    core::VAO* Graphics::CreateVAO( core::VertexBuffer* vb, core::IndexBuffer* ib )
+    {
+        return framework->CreateVAO( vb, ib );
     }
     
     void Graphics::SetFramebufferSizeCallback( FuncPtrParamI2 funcptr )
@@ -68,22 +73,22 @@ namespace kege{namespace gfx{
         framework->SetKeyboardCallback( funcptr );
     }
     
-    Shader* Graphics::CreateShader(const ds::string& filename)
+    core::Shader* Graphics::CreateShader(const ds::string& filename)
     {
         return framework->CreateShader( filename );
     }
     
-    Shader* Graphics::CreateShader(SHDR& shdr)
+    core::Shader* Graphics::CreateShader(core::SHDR& shdr)
     {
         return framework->CreateShader( shdr );
     }
     
-    Shader* Graphics::CreateShader()
+    core::Shader* Graphics::CreateShader()
     {
         return framework->CreateShader();
     }
     
-    Framebuffer* Graphics::CreateFramebuffer()
+    core::Framebuffer* Graphics::CreateFramebuffer()
     {
         return framework->CreateFramebuffer();
     }
@@ -93,17 +98,17 @@ namespace kege{namespace gfx{
         framework->SetBackgroundColor( color );
     }
     
-    RenderSetting* Graphics::CreateRenderSetting()
+    core::RenderContext* Graphics::CreateRenderSetting()
     {
         return framework->CreateRenderSetting();
     }
     
-    TextureCube* Graphics::CreateTextureCube()
+    core::TextureCube* Graphics::CreateTextureCube()
     {
         return framework->CreateTextureCube();
     }
     
-    Texture2D* Graphics::CreateTexture2D()
+    core::Texture2D* Graphics::CreateTexture2D()
     {
         return framework->CreateTexture2D();
     }
@@ -166,19 +171,19 @@ namespace kege{namespace gfx{
         framework->ClearScreen();
     }
     
-    VAO* Graphics::CreateVAO()
+    core::VAO* Graphics::CreateVAO()
     {
         return framework->CreateVAO();
     }
-    VBO* Graphics::CreateVBO()
+    core::VBO* Graphics::CreateVBO()
     {
         return framework->CreateVBO();
     }
-    UBO* Graphics::CreateUBO()
+    core::UBO* Graphics::CreateUBO()
     {
         return framework->CreateUBO();
     }
-    IBO* Graphics::CreateIBO()
+    core::IBO* Graphics::CreateIBO()
     {
         return framework->CreateIBO();
     }
@@ -188,7 +193,7 @@ namespace kege{namespace gfx{
         return framework->GetConstant( target );
     }
 
-    void gfx::Graphics::CheckError(source src)
+    void gfx::Graphics::CheckError(core::source src)
     {
         framework->CheckError(src);
     }
@@ -202,11 +207,11 @@ namespace kege{namespace gfx{
         }
     }
 
-    gfx::Graphics::Graphics(GraphicsFramework* g)
+    gfx::Graphics::Graphics( core::GraphicsFramework* g )
     {
         if (g == nullptr)
         {
-            framework = new gfx::GLGraphics();
+            framework = new core::GLGraphics();
         }
         else
         {

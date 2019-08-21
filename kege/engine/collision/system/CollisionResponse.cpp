@@ -7,5 +7,5 @@
 //
 
 #include "CollisionResponse.hpp"
-namespace kege{namespace cg{
+namespace kege{namespace gfx{
 }}

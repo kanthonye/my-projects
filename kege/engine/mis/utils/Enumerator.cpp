@@ -31,3 +31,4 @@ namespace kege{
     :   _enumerator(0)
     {}
 }
+

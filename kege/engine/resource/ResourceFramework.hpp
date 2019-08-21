@@ -56,7 +56,7 @@ namespace kege{
     {
     public:
         
-        virtual kege::shared< var > Load( const ds::string& filename ) = 0;
+        virtual mem::shared< var > Load( const ds::string& filename ) = 0;
         
         virtual ~ ResourceLoader() {}
         
@@ -71,14 +71,14 @@ namespace kege{
     {
     public:
         
-        virtual kege::shared< var > Add( const ds::string& name, var * a ) = 0;
+        virtual mem::shared< var > Add( const ds::string& name, var * a ) = 0;
         
-        virtual kege::shared< var > Rem( const ds::string& name ) = 0;
+        virtual mem::shared< var > Rem( const ds::string& name ) = 0;
         
-        virtual kege::shared< var > Get( const ds::string& name )const = 0;
-        virtual kege::shared< var > Get( const ds::string& name ) = 0;
+        virtual mem::shared< var > Get( const ds::string& name )const = 0;
+        virtual mem::shared< var > Get( const ds::string& name ) = 0;
         
-        virtual kege::shared< var > Has( const ds::string& name )const = 0;
+        virtual mem::shared< var > Has( const ds::string& name )const = 0;
         
         virtual void Terminate() = 0;
         

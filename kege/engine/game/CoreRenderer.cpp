@@ -13,7 +13,7 @@
 #include "GameStateManager.hpp"
 namespace kege{
     
-    gfx::Window* CoreRenderer::GetWindow()
+    core::Window* CoreRenderer::GetWindow()
     {
         return _window;
     }
@@ -80,7 +80,7 @@ namespace kege{
         {
             return false;
         }
-        _graphics = new gfx::Graphics( new gfx::GLGraphics() );
+        _graphics = new gfx::Graphics( new core::GLGraphics() );
         
         _window = gfx::Graphics::CreateWindow(_width, _height, _title.c_str(), _fullscreen);
         _window->ClearScreen();

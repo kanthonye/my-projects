@@ -8,10 +8,10 @@
 #include "Scene.hpp"
 #include "Gameobject.hpp"
 #include "Singleton.hpp"
-#include "RenderComponent.hpp"
+#include "Model.hpp"
 #include "CollisionComponent.hpp"
 #include "CollisionSystem.hpp"
-namespace kege{namespace cmp{
+namespace kege{namespace gfx{
     
     bool CollisionComponent::Init(kege::Scene* scene)
     {
@@ -19,8 +19,8 @@ namespace kege{namespace cmp{
         return true;
     }
     
-    CollisionComponent::CollisionComponent(cg::Collider* collider)
-    :   gfx::EntityComponent(kege::ENUM::_COLLIDER_COMPONANT)
+    CollisionComponent::CollisionComponent(gfx::Collider* collider)
+    :   gfx::Component(kege::ENUM::_COLLIDER_COMPONANT)
     ,   _body(nullptr)
     ,   _collider(collider)
     ,   _layer(0)

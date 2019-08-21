@@ -13,7 +13,7 @@ namespace kege{namespace cg{
     class cylinder
     {
     public:
-        cg::vec3 a, b;
+        cg::vec3 a,  b;
         cg::real radius;
         cg::real height;
     };

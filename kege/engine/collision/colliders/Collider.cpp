@@ -7,7 +7,7 @@
 //
 
 #include "../colliders/Collider.hpp"
-namespace kege{namespace cg{
+namespace kege{namespace gfx{
     
     void Collider::UpdateOrientation(const gfx::Transform& world)
     {
@@ -18,38 +18,38 @@ namespace kege{namespace cg{
         }
     }
 
-    bool Collider::TestCollision(cg::CollisionContacts* contact, const Collider* collider)
+    bool Collider::TestCollision(gfx::CollisionContacts* contact, const Collider* collider)
     {
         switch ( collider->GetType() )
         {
             default: break;
                 
-            case cg::Collider::SPHERE:
-                return TestCollision(contact, (cg::ColliderSphere*) collider);
+            case gfx::Collider::SPHERE:
+                return TestCollision(contact, (gfx::ColliderSphere*) collider);
                 
-            case cg::Collider::AABB:
-                return TestCollision(contact, (cg::ColliderAABB*) collider );
+            case gfx::Collider::AABB:
+                return TestCollision(contact, (gfx::ColliderAABB*) collider );
                 
-            case cg::Collider::OBB:
-                return TestCollision(contact, (cg::ColliderOBB*) collider );
+            case gfx::Collider::OBB:
+                return TestCollision(contact, (gfx::ColliderOBB*) collider );
                 
-            case cg::Collider::RAY:
-                return TestCollision(contact, (cg::ColliderRay*) collider );
+            case gfx::Collider::RAY:
+                return TestCollision(contact, (gfx::ColliderRay*) collider );
                 
-            case cg::Collider::SEGMENT:
-                return TestCollision(contact, (cg::ColliderSegment*) collider );
+            case gfx::Collider::SEGMENT:
+                return TestCollision(contact, (gfx::ColliderSegment*) collider );
                 
-            case cg::Collider::PLANE:
-                return TestCollision(contact, (cg::ColliderPlane*) collider );
+            case gfx::Collider::PLANE:
+                return TestCollision(contact, (gfx::ColliderPlane*) collider );
                 
-            case cg::Collider::CYLINDER:
-                return TestCollision(contact, (cg::ColliderCylinder*) collider );
+            case gfx::Collider::CYLINDER:
+                return TestCollision(contact, (gfx::ColliderCylinder*) collider );
                 
-            case cg::Collider::CONE:
-                return TestCollision(contact, (cg::ColliderCone*) collider );
+            case gfx::Collider::CONE:
+                return TestCollision(contact, (gfx::ColliderCone*) collider );
                 
-            case cg::Collider::CAPSULE:
-                return TestCollision(contact, (cg::ColliderCapsule*) collider );
+            case gfx::Collider::CAPSULE:
+                return TestCollision(contact, (gfx::ColliderCapsule*) collider );
         }
         return false;
     }

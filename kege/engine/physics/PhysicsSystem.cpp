@@ -6,9 +6,11 @@
  *  @project    KEGE (Kenneth Esdaile Game Engine)
  */
 
+#include "Scene.hpp"
 #include "Entity.hpp"
 #include "PhysicsComponent.hpp"
 #include "PhysicsSystem.hpp"
+#include "TerrainSystem.hpp"
 namespace kege {namespace phx{
     
     void PhysicsSystem::AddPhysicsObject(phx::PhysicsComponent* object)
@@ -18,6 +20,10 @@ namespace kege {namespace phx{
     
     void PhysicsSystem::Update(double delta)
     {
+        gfx::TerrainSystem* system = (gfx::TerrainSystem*) GetScene()->GetSystem("TerrainSystem");
+        gfx::Terrain* terrain = (system != nullptr) ? system->GetTerrain() : nullptr;
+        double terrain_height;
+        
         cg::vec3 acceleration;
         for (phx::PhysicsComponent* body = PhysicsComponent::head; body!=nullptr; body = body->next)
         {
@@ -33,6 +39,16 @@ namespace kege {namespace phx{
             body->position += body->linear_velocity * delta;
             body->linear_momentum = body->linear_velocity * body->mass;
             body->net_force = 0.0;
+            
+            
+            if ( terrain != nullptr )
+            {
+                terrain_height = terrain->GetHeightmapHeight( body->position );
+                if ( body->position.y <= terrain_height )
+                {
+                    body->position.y = terrain_height;
+                }
+            }
             
             //body->GetParent()->GetLocal().rotation = body->rotation;
             body->GetParent()->GetLocal().translation = body->position;

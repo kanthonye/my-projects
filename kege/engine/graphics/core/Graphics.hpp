@@ -8,9 +8,18 @@
 
 #ifndef Graphics_hpp
 #define Graphics_hpp
-#include "../../graphics/framework/GraphicsFramework.hpp"
+#include "../../resource/VFS.hpp"
+#include "../../graphics/core/cgmath/cgm.hpp"
+#include "../../graphics/core/mesh/Mesh.hpp"
+#include "../../graphics/core/light/Light.hpp"
+#include "../../graphics/core/mesh/GenMesh.hpp"
+#include "../../graphics/core/mesh/Material.hpp"
+#include "../../graphics/core/mesh/Geometry.hpp"
+#include "../../graphics/core/mesh/ADSEffect.hpp"
+#include "../../graphics/core/framework/GFXEnum.hpp"
+#include "../../graphics/core/framework/GraphicsFramework.hpp"
 namespace kege{namespace gfx{
-    
+
     class Graphics
     {
     protected:
@@ -23,13 +32,15 @@ namespace kege{namespace gfx{
         
     public:
       
-        static gfx::GraphicsFramework* Framework();
+        static core::Window* CreateWindow(int width, int height, const char *title, bool fullscreen);
         
-        static Window* CreateWindow(int width, int height, const char *title, bool fullscreen);
+        static core::UBO* CreateUBO(long size, const void* data, cg::uint usage, const ds::string& name);
+        static core::VBO* CreateVBO(long size, const void* data, cg::uint usage);
+        static core::IBO* CreateIBO(long size, const void* data, cg::uint usage);
         
-        static UBO* CreateUBO(long size, const void* data, cg::uint usage, const ds::string& name);
-        static VBO* CreateVBO(long size, const void* data, cg::uint usage);
-        static IBO* CreateIBO(long size, const void* data, cg::uint usage);
+        static core::VAO* CreateVAO( core::VertexBuffer* vb, core::IndexBuffer* ib );
+        
+        static core::GraphicsFramework* Framework();
         
         static void SetFramebufferSizeCallback( FuncPtrParamI2 funcptr );
         static void SetWindowSizeCallback( FuncPtrParamI2 funcptr );
@@ -40,14 +51,15 @@ namespace kege{namespace gfx{
         static void SetWindowCloseCallback( FuncPtrParamB1 funcptr );
         static void SetKeyboardCallback( FuncPtrParamI4 funcptr );
         
-        static Shader* CreateShader(const ds::string& filename);
-        static Shader* CreateShader(SHDR& sources);
-        static Shader* CreateShader();
+        static core::Shader* CreateShader(const ds::string& filename);
+        static core::Shader* CreateShader(core::SHDR& sources);
+        static core::Shader* CreateShader();
         
-        static Framebuffer* CreateFramebuffer();
+        static core::Framebuffer* CreateFramebuffer();
+        static core::TextureCube* CreateTextureCube();
+        static core::Texture2D* CreateTexture2D();
         
-        static TextureCube* CreateTextureCube();
-        static Texture2D* CreateTexture2D();
+        
         
         static void SetBackgroundColor(const cg::vec4& color);
         
@@ -64,17 +76,17 @@ namespace kege{namespace gfx{
         static void AlphaBlending();
         static void ClearScreen();
         
-        static VAO* CreateVAO();
-        static VBO* CreateVBO();
-        static UBO* CreateUBO();
-        static IBO* CreateIBO();
+        static core::VAO* CreateVAO();
+        static core::VBO* CreateVBO();
+        static core::UBO* CreateUBO();
+        static core::IBO* CreateIBO();
 
-        static RenderSetting* CreateRenderSetting();
+        static core::RenderContext* CreateRenderSetting();
         static cg::uint GetConstant(int target);
 
-        static void CheckError(source src);
+        static void CheckError( core::source src);
 
-        Graphics(GraphicsFramework* g);
+        Graphics( core::GraphicsFramework* g );
         virtual ~ Graphics();
         
     protected:
@@ -82,7 +94,7 @@ namespace kege{namespace gfx{
         void operator =(const Graphics& other);
         const Graphics& operator &();
         
-        static gfx::GraphicsFramework* framework;
+        static core::GraphicsFramework* framework;
     };
 }}
 #endif /* Graphics_hpp */

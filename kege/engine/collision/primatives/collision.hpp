@@ -49,7 +49,7 @@ namespace kege{namespace cg{
          */
         cg::real penetration;
     };
-    
     typedef ds::dlist<collision> collisions;
+
 }}
 #endif /* collision_hpp */

@@ -10,20 +10,20 @@
 #include "cgm.hpp"
 #include "dlist.hpp"
 #include "CollisionContact.hpp"
-namespace kege{namespace cg{
+namespace kege{namespace gfx{
     
     class CollisionResponse
     {
     public:
-        virtual void Execute(const cg::CollisionContact& contact) = 0;
+        virtual void Execute(const gfx::CollisionContact& contact) = 0;
         virtual ~ CollisionResponse(){}
     };
     
     
-    class MultiCollisionResponse : public cg::CollisionResponse
+    class MultiCollisionResponse : public CollisionResponse
     {
     public:
-        void Execute(const cg::CollisionContact& contact);
+        void Execute(const gfx::CollisionContact& contact);
         ~ MultiCollisionResponse();
     };
 }}

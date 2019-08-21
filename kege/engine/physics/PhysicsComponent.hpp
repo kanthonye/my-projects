@@ -7,13 +7,13 @@
 //
 #ifndef PhysicsComponent_hpp
 #define PhysicsComponent_hpp
-#include "EntityComponent.hpp"
+#include "Component.hpp"
 #include "ForceDriver.hpp"
 #include "../collision/colliders/Collider.hpp"
 namespace kege{namespace phx{
     class PhysicsSystem;
     
-    class PhysicsComponent : public gfx::EntityComponent
+    class PhysicsComponent : public gfx::Component
     {
     public:
         
@@ -103,7 +103,7 @@ namespace kege{namespace phx{
         static PhysicsComponent* tail;
         PhysicsComponent* next;
         PhysicsComponent* prev;
-        cg::Collider* _collider;
+        gfx::Collider* _collider;
     };
 }}
 #endif /* PhysicsComponent_hpp */

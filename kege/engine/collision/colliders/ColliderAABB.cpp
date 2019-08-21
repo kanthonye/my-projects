@@ -15,57 +15,57 @@
 #include "../primatives/triangle.hpp"
 #include "../primatives/cylinder.hpp"
 #include "../colliders/ColliderAABB.hpp"
-namespace kege{namespace cg{
+namespace kege{namespace gfx{
     
-    bool AABB_Intersect_AABB(cg::CollisionContacts* contacts, cg::ColliderAABB* a, cg::ColliderAABB* b)
+    bool AABB_Intersect_AABB(gfx::CollisionContacts* contacts, gfx::ColliderAABB* a, gfx::ColliderAABB* b)
     {
 //        const cg::aabb& a0 = a->GetShape();
 //        const cg::aabb& a1 = b->GetShape();
         return true;
     }
     
-    bool ColliderAABB::TestCollision(cg::CollisionContacts* contacts, cg::ColliderCylinder* shape)
+    bool ColliderAABB::TestCollision(gfx::CollisionContacts* contacts, gfx::ColliderCylinder* shape)
     {
         return false;
     }
-    bool ColliderAABB::TestCollision(cg::CollisionContacts* contacts, cg::ColliderTriangle* shape)
+    bool ColliderAABB::TestCollision(gfx::CollisionContacts* contacts, gfx::ColliderTriangle* shape)
     {
         return false;
     }
-    bool ColliderAABB::TestCollision(cg::CollisionContacts* contacts, cg::ColliderSegment* shape)
+    bool ColliderAABB::TestCollision(gfx::CollisionContacts* contacts, gfx::ColliderSegment* shape)
     {
         return false;
     }
-    bool ColliderAABB::TestCollision(cg::CollisionContacts* contacts, cg::ColliderCapsule* shape)
+    bool ColliderAABB::TestCollision(gfx::CollisionContacts* contacts, gfx::ColliderCapsule* shape)
     {
         return false;
     }
-    bool ColliderAABB::TestCollision(cg::CollisionContacts* contacts, cg::ColliderSphere* shape)
+    bool ColliderAABB::TestCollision(gfx::CollisionContacts* contacts, gfx::ColliderSphere* shape)
     {
         return false;
     }
-    bool ColliderAABB::TestCollision(cg::CollisionContacts* contacts, cg::ColliderPlane* shape)
+    bool ColliderAABB::TestCollision(gfx::CollisionContacts* contacts, gfx::ColliderPlane* shape)
     {
         return false;
     }
-    bool ColliderAABB::TestCollision(cg::CollisionContacts* contacts, cg::ColliderAABB* shape)
+    bool ColliderAABB::TestCollision(gfx::CollisionContacts* contacts, gfx::ColliderAABB* shape)
     {
-        return cg::AABB_Intersect_AABB(contacts, this, shape);
+        return gfx::AABB_Intersect_AABB(contacts, this, shape);
     }
-    bool ColliderAABB::TestCollision(cg::CollisionContacts* contacts, cg::ColliderCone* shape)
-    {
-        return false;
-    }
-    bool ColliderAABB::TestCollision(cg::CollisionContacts* contacts, cg::ColliderOBB* shape)
+    bool ColliderAABB::TestCollision(gfx::CollisionContacts* contacts, gfx::ColliderCone* shape)
     {
         return false;
     }
-    bool ColliderAABB::TestCollision(cg::CollisionContacts* contacts, cg::ColliderRay* shape)
+    bool ColliderAABB::TestCollision(gfx::CollisionContacts* contacts, gfx::ColliderOBB* shape)
+    {
+        return false;
+    }
+    bool ColliderAABB::TestCollision(gfx::CollisionContacts* contacts, gfx::ColliderRay* shape)
     {
         return false;
     }
     
     ColliderAABB::ColliderAABB()
-    :   cg::Collider( cg::Collider::AABB )
+    :   gfx::Collider( gfx::Collider::AABB )
     {}
 }}

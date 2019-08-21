@@ -12,17 +12,16 @@
 #include "Collider.hpp"
 #include "CollisionProcess.hpp"
 #include "CollisionResolver.hpp"
-namespace kege{namespace cg{
-    class CollisionDetector;
+namespace kege{namespace gfx{
     
     class CollisionSystem : public kege::SubSystem
     {
     public:
         
-        void AddCollider(cg::Collider* collider);
+        void AddCollider(gfx::Collider* collider);
         
-        ds::dlist<Collider*>& GetDynamicCollider();
-        ds::dlist<Collider*>& GetStaticCollider();
+        ds::dlist< gfx::Collider* >& GetDynamicCollider();
+        ds::dlist< gfx::Collider* >& GetStaticCollider();
         
         void Update(double time_delta);
         void UnInit();
@@ -33,9 +32,9 @@ namespace kege{namespace cg{
         
     protected:
         
-        ds::dlist<cg::CollisionProcess*> processes;
-        ds::dlist<Collider*> immovable;
-        ds::dlist<Collider*> movables;
+        ds::dlist< gfx::CollisionProcess* > processes;
+        ds::dlist< gfx::Collider* > immovable;
+        ds::dlist< gfx::Collider* > movables;
     };
 }}
 #endif /* SceneCollision_hpp */

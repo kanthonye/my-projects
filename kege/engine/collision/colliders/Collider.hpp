@@ -20,7 +20,7 @@
 #include "cylinder.hpp"
 #include "Transform.hpp"
 #include "CollisionContact.hpp"
-namespace kege{namespace cg{
+namespace kege{namespace gfx{
     
     class ColliderCylinder;
     class ColliderTriangle;
@@ -54,22 +54,22 @@ namespace kege{namespace cg{
         
     public:
         
-        virtual bool TestCollision(cg::CollisionContacts* contact, cg::ColliderCylinder* shape) {return false;}
-        virtual bool TestCollision(cg::CollisionContacts* contact, cg::ColliderTriangle* shape) {return false;}
-        virtual bool TestCollision(cg::CollisionContacts* contact, cg::ColliderSegment* shape) {return false;}
-        virtual bool TestCollision(cg::CollisionContacts* contact, cg::ColliderCapsule* shape) {return false;}
-        virtual bool TestCollision(cg::CollisionContacts* contact, cg::ColliderSphere* shape) {return false;}
-        virtual bool TestCollision(cg::CollisionContacts* contact, cg::ColliderPlane* shape) {return false;}
-        virtual bool TestCollision(cg::CollisionContacts* contact, cg::ColliderAABB* shape) {return false;}
-        virtual bool TestCollision(cg::CollisionContacts* contact, cg::ColliderCone* shape) {return false;}
-        virtual bool TestCollision(cg::CollisionContacts* contact, cg::ColliderOBB* shape) {return false;}
-        virtual bool TestCollision(cg::CollisionContacts* contact, cg::ColliderRay* shape) {return false;}
-        virtual bool TestCollision(cg::CollisionContacts* contact, const Collider* collider);
+        virtual bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderCylinder* shape) {return false;}
+        virtual bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderTriangle* shape) {return false;}
+        virtual bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderSegment* shape) {return false;}
+        virtual bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderCapsule* shape) {return false;}
+        virtual bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderSphere* shape) {return false;}
+        virtual bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderPlane* shape) {return false;}
+        virtual bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderAABB* shape) {return false;}
+        virtual bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderCone* shape) {return false;}
+        virtual bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderOBB* shape) {return false;}
+        virtual bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderRay* shape) {return false;}
+        virtual bool TestCollision(gfx::CollisionContacts* contact, const Collider* collider);
         
         virtual void UpdateOrientation(const gfx::Transform& world);
-        cg::Collider::Type GetType() const {return type;}
+        gfx::Collider::Type GetType() const {return type;}
         
-        Collider(cg::Collider::Type t)
+        Collider(gfx::Collider::Type t)
         :   type(t)
         {}
         
@@ -78,7 +78,11 @@ namespace kege{namespace cg{
         
         ds::dlist< Collider* > _colliders;
         gfx::Transform _world, _local;
-        cg::Collider::Type type;
+        gfx::Collider::Type type;
     };
+}}
+
+namespace kege{namespace shared{
+    typedef mem::shared< gfx::Collider > Collider;
 }}
 #endif /* Collider_hpp */

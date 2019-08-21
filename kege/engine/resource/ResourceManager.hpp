@@ -11,8 +11,8 @@ namespace kege{
 
     class ResourceManager
     {
-        typedef kege::ListPair<ds::string, CoreResource*> CoreResources;
-        typedef kege::ListPair<ds::string, CoreLoader*> CoreLoaders;
+        typedef kege::listpair<ds::string, CoreResource*> CoreResources;
+        typedef kege::listpair<ds::string, CoreLoader*> CoreLoaders;
         
     public:// kege::ResourceManager ResourceManager
         
@@ -24,27 +24,27 @@ namespace kege{
         
         
         
-        template<typename var> kege::shared< var > Load( const ds::string& filename );
+        template<typename var> mem::shared< var > Load( const ds::string& filename );
         
         /*
          * add object to resource. only once of each object can exist
          */
-        template<typename var> kege::shared< var > Add( const ds::string& name, var* a );
+        template<typename var> mem::shared< var > Add( const ds::string& name, var* a );
         
         /*
          * add object to resource. only once of each object can exist
          */
-        template<typename var> kege::shared< var > Add(const ds::string& name);
+        template<typename var> mem::shared< var > Add(const ds::string& name);
         
         /*
          * add object to resource. only once of each object can exist
          */
-        template<typename var> kege::shared< var > Get(const ds::string& name);
+        template<typename var> mem::shared< var > Get(const ds::string& name);
         
         /*
          * instantly remove var by name from resource
          */
-        template<typename var> kege::shared< var > Rem(const ds::string& name);
+        template<typename var> mem::shared< var > Rem(const ds::string& name);
         
         /*
          * instantly remove var by name from resource
@@ -62,8 +62,8 @@ namespace kege{
         void operator=(const ResourceManager& mgr);
         ResourceManager(const ResourceManager& mgr);
         
-        kege::Resmap< long, CoreResources> _resources;
-        kege::Resmap< long, CoreLoaders> _loaders;
+        kege::itemmap< long, CoreResources> _resources;
+        kege::itemmap< long, CoreLoaders> _loaders;
     };
     
     
@@ -116,28 +116,28 @@ namespace kege{
         return nullptr;
     }
     
-    template<typename var> kege::shared< var > ResourceManager::Load( const ds::string& filename )
+    template<typename var> mem::shared< var > ResourceManager::Load( const ds::string& filename )
     {
         const ds::string& ext = filename.parse_fext();
         return GetLoader< var >( ext )->Load( filename );
     }
     
-    template<typename var> kege::shared< var > ResourceManager::Add( const ds::string& name, var* a )
+    template<typename var> mem::shared< var > ResourceManager::Add( const ds::string& name, var* a )
     {
         return GetResource< var >()->Add( name, a );
     }
     
-    template<typename var> kege::shared< var > ResourceManager::Add(const ds::string& name)
+    template<typename var> mem::shared< var > ResourceManager::Add(const ds::string& name)
     {
         return GetResource< var >()->Add( name, new var );
     }
     
-    template<typename var> kege::shared< var > ResourceManager::Get(const ds::string& name)
+    template<typename var> mem::shared< var > ResourceManager::Get(const ds::string& name)
     {
         return GetResource<var>()->Get(name);
     }
     
-    template<typename var> kege::shared< var > ResourceManager::Rem(const ds::string& name)
+    template<typename var> mem::shared< var > ResourceManager::Rem(const ds::string& name)
     {
         return GetResource<var>()->Rem(name);
     }

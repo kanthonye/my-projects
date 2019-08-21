@@ -9,7 +9,7 @@ namespace kege{
     void kege::ResourceManager::Terminate()
     {
         CoreResources::Iterator rn;
-        kege::Resmap< long, CoreResources>::iterator rm;
+        kege::itemmap< long, CoreResources>::iterator rm;
         for (rm=_resources.begin(); rm!=_resources.end(); rm++)
         {
             for (rn=rm->second.begin(); rn!=nullptr; rn++)
@@ -21,7 +21,7 @@ namespace kege{
         _resources.clear();
         
         CoreLoaders::Iterator ln;
-        kege::Resmap< long, CoreLoaders>::iterator lm;
+        kege::itemmap< long, CoreLoaders>::iterator lm;
         for (lm=_loaders.begin(); lm!=_loaders.end(); lm++)
         {
             for (ln=lm->second.begin(); ln!=nullptr; ln++)

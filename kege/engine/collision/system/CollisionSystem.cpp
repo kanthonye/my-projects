@@ -11,11 +11,9 @@
 #include "CollisionSystem.hpp"
 #include "Singleton.hpp"
 #include "DebugRenderer.hpp"
-#include "ObjectSelection.hpp"
-#include "ObjectCollisions.hpp"
-namespace kege{namespace cg{
+namespace kege{namespace gfx{
     
-    void CollisionSystem::AddCollider(cg::Collider* collider)
+    void CollisionSystem::AddCollider(gfx::Collider* collider)
     {
         if ( processes.empty() ) return;
 //
@@ -28,21 +26,21 @@ namespace kege{namespace cg{
 //            immovable.push_back( collider );
 //        }
     }
-    ds::dlist<Collider*>& CollisionSystem::GetDynamicCollider()
+    ds::dlist< gfx::Collider* >& CollisionSystem::GetDynamicCollider()
     {
         return immovable;
     }
-    ds::dlist<Collider*>& CollisionSystem::GetStaticCollider()
+    ds::dlist< gfx::Collider* >& CollisionSystem::GetStaticCollider()
     {
         return movables;
     }
     
     void CollisionSystem::Update(double delta)
     {
-        ds::dlist<cg::CollisionProcess*>::iterator process;
+        ds::dlist< gfx::CollisionProcess* >::iterator process;
         for (process = processes.begin(); process != nullptr; process++)
         {
-            process->Update( delta );
+            process->Update( delta, this );
         }
     }
     void CollisionSystem::UnInit()
@@ -57,7 +55,7 @@ namespace kege{namespace cg{
     
     CollisionSystem::~ CollisionSystem()
     {
-        ds::dlist<cg::CollisionProcess*>::iterator process;
+        ds::dlist< gfx::CollisionProcess* >::iterator process;
         for (process = processes.begin(); process != nullptr; process++)
             delete process.element();
         processes.clear();
@@ -67,8 +65,6 @@ namespace kege{namespace cg{
     CollisionSystem::CollisionSystem()
     :   kege::SubSystem("CollisionSystem")
     {
-        processes.push_back(new cg::ObjectSelection);
-        processes.push_back(new cg::ObjectCollisions);
     }
     
 }}

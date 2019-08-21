@@ -11,33 +11,18 @@
 #include "queue.hpp"
 #include "dlist.hpp"
 #include "Collider.hpp"
-namespace kege{namespace cg{
-    typedef ds::dlist<cg::Collider*> Colliders;
+namespace kege{namespace gfx{
+    typedef ds::dlist<gfx::Collider*> Colliders;
     class CollisionSystem;
     
     class CollisionProcess
     {
     public:
         
-        virtual void ResolveCollisions(double delta) {}
-        virtual void DetectCollisions(double delta) {}
-        virtual void TestCollisions(double delta) {}
-        
-        void Update(double delta)
-        {
-            DetectCollisions(delta);
-            TestCollisions(delta);
-            ResolveCollisions(delta);
-        }
-        void UnInit(){}
-        short Init(){return 0;}
-        
+        virtual void Update( double delta, gfx::CollisionSystem* system ) = 0;
+        virtual void  UnInit() = 0;
+        virtual short Init() = 0;
         virtual ~ CollisionProcess(){}
-        
-    protected:
-        
-        cg::CollisionSystem* system;
-        friend CollisionSystem;
     };
 }}
 #endif /* CollisionProcess_hpp */

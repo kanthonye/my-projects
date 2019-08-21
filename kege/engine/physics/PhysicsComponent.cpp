@@ -28,7 +28,7 @@ namespace kege{namespace phx{
                     tail = this;
                 }
             }
-            return gfx::EntityComponent::Init(scene);
+            return gfx::Component::Init(scene);
         }
         return _init;
     }
@@ -57,7 +57,7 @@ namespace kege{namespace phx{
                 next = nullptr;
                 prev = nullptr;
             }
-            gfx::EntityComponent::UnInit();
+            gfx::Component::UnInit();
         }
     }
     
@@ -238,7 +238,7 @@ namespace kege{namespace phx{
     }
     
     PhysicsComponent::PhysicsComponent()
-    :   gfx::EntityComponent( gfx::EntityComponent::PHYSICS, "PhysicsComponent" )
+    :   gfx::Component( gfx::Component::PHYSICS, "PhysicsComponent" )
     ,   invrs_inertia(1.0)
     ,   inertia(1.0)
     ,   rotation()
@@ -262,7 +262,7 @@ namespace kege{namespace phx{
     
     PhysicsComponent::~ PhysicsComponent()
     {
-        EntityComponent::UnInit();
+        Component::UnInit();
         UnInit();
     }
     

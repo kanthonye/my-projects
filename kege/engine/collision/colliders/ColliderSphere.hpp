@@ -9,22 +9,22 @@
 #define RigidSphere_hpp
 #include "../primatives/sphere.hpp"
 #include "../colliders/Collider.hpp"
-namespace kege{namespace cg{
+namespace kege{namespace gfx{
     
-    class ColliderSphere : public cg::Collider
+    class ColliderSphere : public gfx::Collider
     {
     public:
         
-        bool TestCollision(cg::CollisionContacts* contact, cg::ColliderCylinder* shape);
-        bool TestCollision(cg::CollisionContacts* contact, cg::ColliderTriangle* shape);
-        bool TestCollision(cg::CollisionContacts* contact, cg::ColliderSegment* shape);
-        bool TestCollision(cg::CollisionContacts* contact, cg::ColliderCapsule* shape);
-        bool TestCollision(cg::CollisionContacts* contact, cg::ColliderSphere* shape);
-        bool TestCollision(cg::CollisionContacts* contact, cg::ColliderPlane* shape);
-        bool TestCollision(cg::CollisionContacts* contact, cg::ColliderAABB* shape);
-        bool TestCollision(cg::CollisionContacts* contact, cg::ColliderCone* shape);
-        bool TestCollision(cg::CollisionContacts* contact, cg::ColliderOBB* shape);
-        bool TestCollision(cg::CollisionContacts* contact, cg::ColliderRay* shape);
+        bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderCylinder* shape);
+        bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderTriangle* shape);
+        bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderSegment* shape);
+        bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderCapsule* shape);
+        bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderSphere* shape);
+        bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderPlane* shape);
+        bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderAABB* shape);
+        bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderCone* shape);
+        bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderOBB* shape);
+        bool TestCollision(gfx::CollisionContacts* contact, gfx::ColliderRay* shape);
         
         const cg::sphere& GetShape() const {return sphere;}
         ColliderSphere();

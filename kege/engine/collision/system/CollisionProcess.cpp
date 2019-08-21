@@ -7,6 +7,6 @@
 //
 
 #include "CollisionProcess.hpp"
-namespace kege{namespace cg{
+namespace kege{namespace gfx{
 
 }}

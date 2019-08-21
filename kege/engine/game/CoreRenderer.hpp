@@ -7,10 +7,8 @@
  */
 #ifndef SystemGraphics_hpp
 #define SystemGraphics_hpp
-#include "../graphics/cgmath/cgm.hpp"
 #include "../game/System.hpp"
 #include "../graphics/core/Graphics.hpp"
-#include "GenMeshBox.hpp"
 #include "Shader.hpp"
 #include "CoreSystem.hpp"
 namespace kege{
@@ -26,8 +24,8 @@ namespace kege{
     {
     public:
         
-        gfx::Window* CreateWindow();
-        gfx::Window* GetWindow();
+        core::Window* CreateWindow();
+        core::Window* GetWindow();
         
         void SetWindowTitle(const ds::string& val);
         void WindowBGColor(const cg::vec4& color);
@@ -49,7 +47,7 @@ namespace kege{
     private:
         
         gfx::Graphics* _graphics;
-        gfx::Window* _window;
+        core::Window* _window;
         ds::string _title;
         cg::vec4 _color;
         cg::uint _fbo_flags;

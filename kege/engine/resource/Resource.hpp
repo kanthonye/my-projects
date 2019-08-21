@@ -10,23 +10,24 @@
 #define Resource_hpp
 #include "VFS.hpp"
 #include "Logger.hpp"
-#include "ResourceContainers.hpp"
+#include "listpair.hpp"
+#include "itemmap.hpp"
 #include "ResourceFramework.hpp"
 namespace kege{
     
     template<typename var> class Resource : public ResourceFramework< var >
     {
-        typedef kege::ListPair<ds::string, kege::pointer< var >> Assets;
+        typedef kege::listpair<ds::string, mem::pointer< var >> Assets;
     public:
         
-        kege::shared< var > Add( const ds::string& name, var * a ) override
+        mem::shared< var > Add( const ds::string& name, var * a ) override
         {
             Assets& assets = _resources[ name.hash() ];
-            assets.add( name, kege::pointer< var >( a ) );
+            assets.add( name, mem::pointer< var >( a ) );
             return a;
         }
         
-        kege::shared< var > Rem( const ds::string& name ) override
+        mem::shared< var > Rem( const ds::string& name ) override
         {
             unsigned long key = name.hash();
             Assets* assets = _resources.get( key );
@@ -37,7 +38,7 @@ namespace kege{
             return assets->rem( key );
         }
         
-        kege::shared< var > Get( const ds::string& name )const override
+        mem::shared< var > Get( const ds::string& name )const override
         {
             Assets* assets = _resources.get( name.hash() );
             if ( assets == nullptr )
@@ -47,7 +48,7 @@ namespace kege{
             return assets->get( name );
         }
         
-        kege::shared< var > Get( const ds::string& name ) override
+        mem::shared< var > Get( const ds::string& name ) override
         {
             Assets* assets = _resources.get( name.hash() );
             if ( assets == nullptr )
@@ -90,7 +91,7 @@ namespace kege{
         Resource() {}
         
         
-        kege::Resmap< long, Assets> _resources;
+        kege::itemmap< long, Assets> _resources;
     };
 }
 #endif /* Resource_hpp */
