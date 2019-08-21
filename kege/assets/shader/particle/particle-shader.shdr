@@ -1,0 +1,3 @@
+#DEFINE SHDR ParticleShader
+@f VERTEX_SHADER   ~/shaders/particle/vertex-shader.glsl
+@f FRAGMENT_SHADER ~/shaders/particle/fragment-shader.glsl

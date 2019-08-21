@@ -1,0 +1,22 @@
+# Blender MTL File: 'wod_fdraenei.blend'
+# Material Count: 2
+
+newmtl Body.tga.001
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.779129 0.573213 0.793688
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures/DraeneiFemaleSkin00_06_HD.tga
+
+newmtl fdraenei_hair
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.392978 0.749061 0.522419
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures/Hair00_06_HD.tga

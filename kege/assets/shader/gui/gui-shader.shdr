@@ -1,0 +1,5 @@
+#DEFINE SHDR GUIShader
+@f VERTEX_SHADER   ~/shaders/gui/vertex-shader.glsl
+@f FRAGMENT_SHADER ~/shaders/gui/fragment-shader.glsl
+
+#ENDDEF

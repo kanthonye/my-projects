@@ -1,0 +1,39 @@
+#SHADER_CONFIG_FILE
+
+float MAX_HEIGHT            = 200.0;
+float MAX_DEPTH             = 0.0;
+float MAP_WIDTH             = 128.0;
+float TILE_WIDTH            = 64.0;
+float SCALE                 = 1.0;
+mat44 MODEL_MATRIX          = (1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1);
+
+sampler TerrainNormalmap    = 0;
+sampler TerrainTangentmap   = 1;
+sampler TerrainSplatmap     = 2;
+
+sampler matl_dirt.colr      = 3;
+sampler matl_dirt.norm      = 4;
+sampler matl_dirt.dsa       = 5;
+vec2 matl_dirt.minmaxslope  = (0, 1);
+vec2 matl_dirt.textrscale   = (128, 128);
+
+sampler matl_rock.colr      = 6;
+sampler matl_rock.norm      = 7;
+sampler matl_rock.dsa       = 8;
+vec2 matl_rock.minmaxslope  = (0,1);
+vec2 matl_rock.textrscale   = (128,128);
+
+sampler matl_grass.colr     = 9;
+sampler matl_grass.norm     = 10;
+sampler matl_grass.dsa      = 11;
+vec2 matl_grass.minmaxslope = (0, 0.707);
+vec2 matl_grass.textrscale  = (256, 256);
+
+sampler matl_road.colr      = 12;
+sampler matl_road.norm      = 13;
+sampler matl_road.dsa       = 14;
+vec2 matl_road.minmaxslope  = (0.707, 1.0);
+vec2 matl_road.textrscale   = (256, 256);
+
+vec2 TxtrOffset             = (0, 0);
+

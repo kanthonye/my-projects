@@ -1,0 +1,6 @@
+#DEFINE SHDR SkyShader
+
+@f VERTEX_SHADER   ~/shaders/sky/vertex-shader.glsl
+@f FRAGMENT_SHADER ~/shaders/sky/fragment-shader.glsl
+
+#ENDDEF

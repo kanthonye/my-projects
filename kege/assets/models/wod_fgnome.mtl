@@ -1,0 +1,24 @@
+# Blender MTL File: 'wod_fgnome.blend'
+# Material Count: 2
+
+newmtl fgnome_body
+Ns 66.666667
+Ka 1.000000 1.000000 1.000000
+Kd 0.807843 0.643137 0.533333
+Ks 0.300000 0.300000 0.300000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures/GnomeFemaleSkin.tga
+
+newmtl fgnome_hair
+Ns 66.666667
+Ka 1.000000 1.000000 1.000000
+Kd 0.545098 0.258824 0.486274
+Ks 0.300000 0.300000 0.300000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures/HAIR00_04_HD.tga

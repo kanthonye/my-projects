@@ -1,0 +1,7 @@
+#DEFINE SHDR TerrainShader
+
+@f VERTEX_SHADER   ~/shaders/terrain/vertex-shader.glsl
+@f FRAGMENT_SHADER ~/shaders/terrain/fragment-shader.glsl
+?@f CONFIG          ~/shaders/terrain/shader-config.con
+
+#ENDDEF
