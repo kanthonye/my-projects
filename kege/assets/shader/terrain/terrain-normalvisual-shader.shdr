@@ -1,7 +1,0 @@
-#DEFINE SHDR TerrainNormalShader
-
-@f VERTEX_SHADER   ~/shaders/terrain/normalvisual-vertex-shader.glsl
-@f FRAGMENT_SHADER ~/shaders/terrain/normalvisual-fragment-shader.glsl
-@f GEOMETRY_SHADER ~/shaders/terrain/normalvisual-geometry-shader.glsl
-
-#ENDDEF

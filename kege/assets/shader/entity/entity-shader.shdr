@@ -1,7 +1,0 @@
-#DEFINE SHDR EntityShader
-
-@f VERTEX_SHADER   ~/shaders/entity/vertex-shader.glsl
-@f FRAGMENT_SHADER ~/shaders/entity/fragment-shader.glsl
-?@f CONFIG          ~/shaders/entity/shader-config.con
-
-#ENDDEF

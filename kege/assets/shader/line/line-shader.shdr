@@ -1,6 +1,0 @@
-#DEFINE SHDR LineShader
-
-@f VERTEX_SHADER   ~/shaders/line/vertex-shader.glsl
-@f FRAGMENT_SHADER ~/shaders/line/fragment-shader.glsl
-
-#ENDDEF
